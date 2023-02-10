@@ -208,13 +208,14 @@ Response:
 
 10. POST profile/:id/upload
 
-Upload avatar or cover for user
+Upload avatar or cover for profile
 
 Request body:
 ```json
 // JWT Token in cookies required!
 {
   "avatar": "example avatar file",
+  // OR
   "cover": "example cover file",
 }
 ```
@@ -228,6 +229,33 @@ Response:
   "description": "Updated description",
   "slug": "myslug",
   "avatar": "example/folder/avatar12",
+  "cover": "example/folder/cover23"
+}
+```
+
+11. DELETE profile/:id/upload
+
+Delete avatar or cover for profile
+
+Request body:
+```json
+// JWT Token in cookies required!
+{
+  "avatar": true,
+  // OR
+  "cover": true,
+}
+```
+
+Response body:
+```json
+{
+  "id": "2",
+  "username": "updatedUser",
+  "email": "redacted-email@mail.ru",
+  "description": "Updated description",
+  "slug": "myslug",
+  "avatar": null,
   "cover": "example/folder/cover23"
 }
 ```
