@@ -1,5 +1,12 @@
 # Yoldi.agency test task
 
+## Installation
+
+```bash
+npm install
+npm run start
+```
+
 ## API
 
 1. POST /profile
@@ -23,7 +30,7 @@ Response:
   "slug": "1"
 }
 ```
-2. GET /profile
+2. GET /profile?page=1&perPage=3
 
 Get profile list
 
@@ -149,7 +156,7 @@ Response:
 }
 ```
 
-7. GET /profile/:slug
+7. GET /profile/slug/:slug
 
 Get profile by slug
 
@@ -233,18 +240,14 @@ Response:
 }
 ```
 
-11. DELETE profile/:id/upload
+11. DELETE profile/:id/upload?avatar&cover
 
-Delete avatar or cover for profile
+Delete avatar or/and cover for profile
 
 Request body:
 ```json
 // JWT Token in cookies required!
-{
-  "avatar": true,
-  // OR
-  "cover": true,
-}
+{}
 ```
 
 Response body:
@@ -256,6 +259,6 @@ Response body:
   "description": "Updated description",
   "slug": "myslug",
   "avatar": null,
-  "cover": "example/folder/cover23"
+  "cover": null
 }
 ```
